@@ -2,6 +2,7 @@ package com.university.demo.service;
 
 import com.university.demo.dao.UniversityRepository;
 import com.university.demo.dto.UniversityDTO;
+import com.university.demo.model.bean.Course;
 import com.university.demo.model.bean.University;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,16 +16,11 @@ public class UniversityService {
   UniversityRepository universityRepository;
 
 
-  public List<UniversityDTO> getAllUniversities(String country, String courses, int feesAmount, String stream) {
-      return universityRepository.findAll().stream().map( item ->mapUniversity(item)).collect(
-          Collectors.toList());
+  public List<UniversityDTO> getAllUniversities(String country, String course, int feesAmount, String stream) {
+      return
   }
 
-  public UniversityDTO mapUniversity(University university) {
-      UniversityDTO universityDTO = new UniversityDTO();
-
-      universityDTO.setName(university.getUniversityName());
-
-      return universityDTO;
+  public  filterUniversities(Course course, String course, int feesAmount, String stream) {
+      if( university.getCourse())
   }
 }

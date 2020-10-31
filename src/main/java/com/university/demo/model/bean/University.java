@@ -28,12 +28,8 @@ public class University implements Serializable {
   @Column(name = "marks_required")
   private int marksRequired;
 
-  @Column(name = "course_fees")
-  private int courseFees;
-
   @OneToMany(mappedBy = "course", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
   private Set<Course> course;
-
 
   public University() {
   }
@@ -82,12 +78,12 @@ public class University implements Serializable {
     this.marksRequired = marksRequired;
   }
 
-  public int getCourseFees() {
-    return courseFees;
+  public Set<Course> getCourse() {
+    return course;
   }
 
-  public void setCourseFees(int courseFees) {
-    this.courseFees = courseFees;
+  public void setCourse(Set<Course> course) {
+    this.course = course;
   }
 }
 
