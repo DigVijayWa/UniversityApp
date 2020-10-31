@@ -15,11 +15,10 @@ public class UniversityService {
   UniversityRepository universityRepository;
 
 
-  public List<UniversityDTO> getAllUniversities() {
+  public List<UniversityDTO> getAllUniversities(String country, String courses, int feesAmount, String stream) {
       return universityRepository.findAll().stream().map( item ->mapUniversity(item)).collect(
           Collectors.toList());
   }
-
 
   public UniversityDTO mapUniversity(University university) {
       UniversityDTO universityDTO = new UniversityDTO();

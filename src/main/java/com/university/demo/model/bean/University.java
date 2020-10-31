@@ -1,8 +1,8 @@
 package com.university.demo.model.bean;
 
+import java.util.Set;
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Set;
 
 @Entity
 @Table(name="university")
@@ -13,13 +13,14 @@ public class University implements Serializable {
 
   @Column(name = "university_id")
   @Id
+  @GeneratedValue
   private Long id;
 
   @Column(name = "university_name")
   private String universityName;
 
   @Column(name = "country")
-  private String floorNo;
+  private String country;
 
   @Column(name = "exams")
   private String exams;
@@ -29,6 +30,10 @@ public class University implements Serializable {
 
   @Column(name = "course_fees")
   private int courseFees;
+
+  @OneToMany(mappedBy = "course", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+  private Set<Course> course;
+
 
   public University() {
   }
@@ -53,12 +58,12 @@ public class University implements Serializable {
     this.universityName = universityName;
   }
 
-  public String getFloorNo() {
-    return floorNo;
+  public String getCountry() {
+    return country;
   }
 
-  public void setFloorNo(String floorNo) {
-    this.floorNo = floorNo;
+  public void setCountry(String country) {
+    this.country = country;
   }
 
   public String getExams() {
