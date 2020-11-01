@@ -1,12 +1,10 @@
 package com.university.demo.dao;
 
-
-
-import com.university.demo.model.bean.University;
+import com.university.demo.model.bean.Exam;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
-public interface UniversityRepository extends JpaRepository<University,Long>{
+public interface ExamRepository extends JpaRepository<Exam,Long> {
+
 }

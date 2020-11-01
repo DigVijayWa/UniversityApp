@@ -1,11 +1,13 @@
 package com.university.demo.model.bean;
 
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,14 +29,17 @@ public class Course {
   @Column(name = "subject_combination")
   private String subjectCombination;
 
-  @Column(name = "marks_required")
-  private int marksRequired;
+  @OneToMany(mappedBy = "course")
+  Set<CourseExam> courseExams;
 
   @Column(name = "course_fees")
   private int courseFees;
 
   @Column(name = "stream")
   private String stream;
+
+  @Column(name= "course_duration")
+  private int courseDuration;
 
   @ManyToOne
   @JoinColumn(name = "university_id")
@@ -76,14 +81,6 @@ public class Course {
     this.subjectCombination = subjectCombination;
   }
 
-  public int getMarksRequired() {
-    return marksRequired;
-  }
-
-  public void setMarksRequired(int marksRequired) {
-    this.marksRequired = marksRequired;
-  }
-
   public int getCourseFees() {
     return courseFees;
   }
@@ -105,5 +102,21 @@ public class Course {
 
   public void setStream(String stream) {
     this.stream = stream;
+  }
+
+  public Set<CourseExam> getCourseExams() {
+    return courseExams;
+  }
+
+  public void setCourseExams(Set<CourseExam> courseExams) {
+    this.courseExams = courseExams;
+  }
+
+  public int getCourseDuration() {
+    return courseDuration;
+  }
+
+  public void setCourseDuration(int courseDuration) {
+    this.courseDuration = courseDuration;
   }
 }

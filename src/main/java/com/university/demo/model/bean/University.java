@@ -22,13 +22,13 @@ public class University implements Serializable {
   @Column(name = "country")
   private String country;
 
-  @Column(name = "exams")
-  private String exams;
+  @Column(name = "link")
+  private String universityLink;
 
-  @Column(name = "marks_required")
-  private int marksRequired;
+  @Column(name = "logo")
+  private String universityLogo;
 
-  @OneToMany(mappedBy = "course", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "university", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
   private Set<Course> course;
 
   public University() {
@@ -62,28 +62,28 @@ public class University implements Serializable {
     this.country = country;
   }
 
-  public String getExams() {
-    return exams;
-  }
-
-  public void setExams(String exams) {
-    this.exams = exams;
-  }
-
-  public int getMarksRequired() {
-    return marksRequired;
-  }
-
-  public void setMarksRequired(int marksRequired) {
-    this.marksRequired = marksRequired;
-  }
-
   public Set<Course> getCourse() {
     return course;
   }
 
   public void setCourse(Set<Course> course) {
     this.course = course;
+  }
+
+  public String getUniversityLink() {
+    return universityLink;
+  }
+
+  public void setUniversityLink(String universityLink) {
+    this.universityLink = universityLink;
+  }
+
+  public String getUniversityLogo() {
+    return universityLogo;
+  }
+
+  public void setUniversityLogo(String universityLogo) {
+    this.universityLogo = universityLogo;
   }
 }
 
